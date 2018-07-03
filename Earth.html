@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Earth</title>
+</head>
+<style>
+	body{
+		background-color:#e0e0d1;
+	}
+	.earth{
+		background: url('https://upload.wikimedia.org/wikipedia/commons/2/26/PathfinderMap_hires_%284996917742%29.jpg') no-repeat;
+        width:400px;
+        height:400px;
+        position:relative;
+        left:460px;
+        top:150px; 
+        animation-name:earth;
+        animation-duration:9s;
+        border-radius:500px;
+        animation-timing-function:linear;
+        animation-iteration-count: infinite;
+        animation-direction:alternate-reverse;
+        background-size: cover;
+        box-shadow:5px 5px 9px black;
+	}
+	@keyframes earth{
+		100%{
+			background-position:100%;
+		}
+	}
+</style>
+<body>
+<div class="earth"> </div>
+</body>
+</html>
