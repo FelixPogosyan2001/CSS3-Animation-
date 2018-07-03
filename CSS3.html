@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Superhero</title>
+	<meta charset="utf-8"/>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var a = $("#hero");
+	function hero(){
+	a.removeClass("idle").addClass("attack");
+	setTimeout(function(){
+	a.removeClass("attack").addClass('idle');
+	},3000)
+}
+setInterval(hero,10000);
+});
+	</script>
+<style>
+body{
+	background: #003d59;
+}
+.shadow{
+	 background:black;
+	 width:120px;
+	 border-radius:60px;
+	 height:120px;
+	 opacity:3.5;
+	 position:relative;
+	 top:315px;
+	 opacity:0.5;
+	 border-bottom:15px solid white;
+	 border-top: 5px solid white;
+	 left:115px;
+	 animation-name:shadow;
+	 animation-duration:1s;
+	 animation-iteration-count: infinite;
+	 animation-timing-function:ease-in-out;
+	 animation-direction: alternate;
+	}
+#hero .stance{
+	visibility: hidden;
+	position:absolute;
+     bottom:10px;left:40px;
+	width:255px;
+	height:360px;
+	background: url('https://anti-captcha.com/images/mainpage/herofront_nocape.png') no-repeat;
+	animation-name:hero;
+	animation-duration:1s;
+	animation-timing-function:ease-in-out;
+	animation-iteration-count:infinite;
+	animation-direction: alternate;
+}
+#hero .attack{
+	visibility: hidden;
+	position:absolute;
+	animation-name:none;
+	left:40px;
+	bottom: 3px;
+	width: 100%;
+	height: 100%;
+	background:url('https://anti-captcha.com/images/mainpage/heroright_nocape.png') no-repeat;
+}
+#hero{
+	width:400px;
+	height: 400px;
+	position:relative;
+	left:460px;
+	top:95px;
+}
+#hero.idle .stance{
+	visibility: visible;
+}
+#hero.attack .attack{
+	visibility: visible;
+	position:relative;
+	top:-49px;
+	left:-10px;
+
+}
+#hero.attack .shadow{
+	animation-name: none;
+	position:relative;
+	right:50px;
+	bottom:30px;
+}
+.text{
+	font-size:50px;
+	color:white;
+	position: relative;
+	bottom:575px;
+	left:420px;
+}
+#hero.attack .lazer{
+	background: url('https://upload.wikimedia.org/wikipedia/commons/e/eb/Green_laser.png')no-repeat;
+	width:600px;
+	height:150px;
+	opacity:0.5;
+	position:relative;
+	bottom:497px;
+	left:100px;
+	animation-name:lazer;
+	animation-duration:3s;
+	animation-iteration-count: infinite;
+}
+@keyframes hero{
+	0%{
+	 transform: translateY(0px);
+	}
+	100%{
+		transform: translateY(-20px);
+	}
+}
+@keyframes shadow{
+	0%{
+		transform:scaleX(1.6);
+	}
+	100%{
+		transform:scaleX(1.3);
+	}
+}
+@keyframes lazer{
+	0%{
+		width:100px;
+	}
+	100%{
+		width:573px;
+		opacity:0.8;
+	}
+}
+</style>
+<body>
+<div id="hero" class="idle">
+	<div class="shadow"></div>
+    <div class="stance"></div>
+	<div class="attack"></div>
+	<div class="lazer"></div>
+	<div class="text">Hello World</div>
+</div>
+</body>
+</html>
